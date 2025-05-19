@@ -1,6 +1,6 @@
-# AI-Powered Resume Screener Web App
+# 🤖 AI-Powered Resume Screener Web App
 
-A Streamlit-based web app that screens resumes using AI — compares uploaded resumes to a job description, highlights matching skills, summarizes key points, and returns a match score.
+A Streamlit-based web app that screens resumes using AI — integrated with [Ollama](https://ollama.ai/) LLMs to compare uploaded resumes to a job description, highlight matching skills, summarize key points, and return a match score.
 ![demo](/demo.png)
 
 ---
@@ -18,7 +18,7 @@ A Streamlit-based web app that screens resumes using AI — compares uploaded re
 
 ---
 
-## 🧠 Project Overview
+## ✨ Project Overview
 
 This AI-Powered Resume Screener helps recruiters or HR teams to:
 - Parse PDF resumes
@@ -39,6 +39,21 @@ This AI-Powered Resume Screener helps recruiters or HR teams to:
 - ✅ Responsive UI via Streamlit + CSS
 
 ---
+## 🗂️ Project Structure
+```
+├── __pyache__/
+├── main_app.py
+├── resume_parser.py
+├── scorer.py
+├── summarizer.py
+├── style.css
+├── requirements-webapp.txt # Python dependences
+└── demo.png 
+└── README.md  # Project documentation
+└── LICENSE
+
+```
+---
 
 ## 🧰 Tech Stack
 
@@ -57,4 +72,61 @@ This AI-Powered Resume Screener helps recruiters or HR teams to:
 ```bash
 git clone https://github.com/yourusername/AI-Powered-Resume-Screener.git
 cd AI-Powered-Resume-Screener
-pip install -r requirements.txt
+pip install -r requirements-webapp.txt
+streamlit run main_app.py # Usage
+```
+---
+## ✅ Example Output
+- 📄 John_Doe_CV.pdf — Match Score: 87.6%
+- 📄 Jane_Smith_CV.pdf — Match Score: 65.4%
+
+--- 
+## 🧭 Future Work
+- Export results to CSV
+- Use named-entity recognition (NER) for skill extraction
+- Add job role suggestions via LLM
+- Multi-language support (English + Vietnamese)
+
+---
+## 📄 License
+This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+
+---
+## 🤝 Contributing
+I welcome contributions to improve this project!
+Feel free to:
+- Submit pull requests
+- Report bugs
+- Suggest new features
+
+--- 
+## 🧠 Acknowledgements
+
+### 1. What is Ollama?
+- [Ollama](https://ollama.ai/) is a tool for running lightweight open-source LLMs (like LLaMA 2, Mistral, Phi, etc.) **locally on your machine** with a simple CLI.
+- In this project, Ollama is used to **summarize PDF resumes** into 3–5 bullet points using models like `llama2`.
+
+### 2. Install Ollama (Optional for LLM Summary)
+If you want to enable **AI-powered resume summarization**, install Ollama:
+- Download Ollama: https://ollama.com/download
+- Install a model (example: `llama2`):
+```bash
+ollama run llama2
+```
+- After installation, make sure the `ollama` command is available in your system PATH.
+
+### 3. Troubleshooting Ollama Issues
+If you see this error:
+```bash
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+```
+Make sure that:
+- Ollama is installed correctly
+- The `ollama` CLI is in your system `PATH`
+- You’ve downloaded a model (like `llama2`) with `ollama run llama2`
+
+
+--- 
+## 📬 Contact
+Contact for work: **Nguyễn Công Phát** – congphatnguyen.work@gmail.com
