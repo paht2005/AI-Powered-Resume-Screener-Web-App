@@ -7,17 +7,17 @@ A Streamlit-based web app that screens resumes using AI — integrated with [Oll
 
 ## 📌 Table of Contents
 
-1. [Project Overview](#-project-overview)  
-2. [Features](#-features)  
-3. [Tech Stack](#-tech-stack)  
-4. [Installation](#-installation)  
-5. [Usage](#-usage)  
-6. [Example Output](#-example-output)  
-7. [Future Work](#-future-work)  
-8. [License](#-license)
-9. [Contributing](#-contributing)
-10. [Acknowledgements](#-acknowledgements)
-11. [Contact](#-contact)
+1. [✨ Project Overview](#-project-overview)  
+2. [🚀 Features](#-features)  
+3. [🗂️ Project Structure](#-project-structure)
+4. [🧰 Tech Stack](#-tech-stack)
+5. [⚙️ Installation](#-installation)  
+6. [✅ Example Output](#-example-output)  
+7. [🧭 Future Work](#-future-work)  
+8. [📄 License](#-license)
+9. [🤝 Contributing](#-contributing)
+10. [🧠 Acknowledgements](#-acknowledgements)
+11. [📬 Contact](#-contact)
 
 ---
 
