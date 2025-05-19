@@ -15,6 +15,9 @@ A Streamlit-based web app that screens resumes using AI — integrated with [Oll
 6. [Example Output](#example-output)  
 7. [Future Work](#future-work)  
 8. [License](#license)
+9. [Contributing](#contributing)
+10. [Acknowledgements](#acknowledgements)
+11. [Contact](#contact)
 
 ---
 
@@ -31,12 +34,12 @@ This AI-Powered Resume Screener helps recruiters or HR teams to:
 
 ## 🚀 Features
 
-- 📂 Upload multiple PDF resumes
-- 📝 Paste job description for comparison
-- 🧠 Compute match scores using SentenceTransformer
-- 🔍 Highlight overlapping skills between JD and resume
-- 🧾 (Optional) Summarize resumes using LLM (Ollama)
-- ✅ Responsive UI via Streamlit + CSS
+- Upload multiple PDF resumes
+- Paste job description for comparison
+- Compute match scores using SentenceTransformer
+- Highlight overlapping skills between JD and resume
+- *(Optional) Summarize resumes using LLM (Ollama)*
+- Responsive UI via Streamlit + CSS
 
 ---
 ## 🗂️ Project Structure
