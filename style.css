@@ -1,0 +1,14 @@
+h1 {
+    color: #2e86de;
+    text-align: center;
+}
+
+.match-score {
+    font-weight: bold;
+    color: green;
+}
+
+.highlight {
+    background-color: #ffff99;
+    font-weight: bold;
+}
