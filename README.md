@@ -1,6 +1,7 @@
-# 🤖 AI-Powered Resume Screener Web App
+# AI-Powered Resume Screener Web App
 
 A Streamlit-based web app that screens resumes using AI — compares uploaded resumes to a job description, highlights matching skills, summarizes key points, and returns a match score.
+![demo](/demo.png)
 
 ---
 
