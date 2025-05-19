@@ -1,7 +1,6 @@
-# 💬 Vietnamese Sentiment Classifier Web App
+# 🤖 AI-Powered Resume Screener Web App
 
-A beautiful and simple Streamlit web app for classifying Vietnamese text into **Positive**, **Neutral**, or **Negative** sentiments using a fine-tuned **PhoBERT** model.
-Built with ❤️ for NLP in Vietnamese!
+A Streamlit-based web app that screens resumes using AI — integrated with [Ollama](https://ollama.ai/) LLMs to compare uploaded resumes to a job description, highlight matching skills, summarize key points, and return a match score.
 ![demo](/demo.png)
 
 ---
@@ -14,96 +13,123 @@ Built with ❤️ for NLP in Vietnamese!
 4. [🧰 Tech Stack](#-tech-stack)
 5. [⚙️ Installation](#-installation)  
 6. [✅ Example Output](#-example-output)  
-7. [🧠 How Confidence is Calculated](#-how-confidence-is-calculated)  
+7. [🧭 Future Work](#-future-work)  
 8. [📄 License](#-license)
 9. [🤝 Contributing](#-contributing)
-10. [📬 Contact](#-contact)
+10. [🧠 Acknowledgements](#-acknowledgements)
+11. [📬 Contact](#-contact)
 
 ---
 
 ## ✨ Project Overview
 
-This project is a Vietnamese Sentiment Classifier that allows users to:
-- Input Vietnamese text (sentence or paragraph)
-- Classify the emotional tone: **Positive**, **Neutral**, or **Negative**
-- Display the result clearly with confidence score
-- Run completely offline using pre-trained Transformer models from Hugging Face
+This AI-Powered Resume Screener helps recruiters or HR teams to:
+- Parse PDF resumes
+- Extract key info (skills, experience, education)
+- Compare with a job description
+- Score relevance using embeddings + cosine similarity
+- (Optional) Summarize resumes using local LLM (via Ollama)
+
 ---
 
 ## 🚀 Features
 
-- Vietnamese language support
-- Clean, responsive Streamlit UI
-- Powered by `wonrax/phobert-base-vietnamese-sentiment`
-- Accurate sentiment classification with confidence
-- Fast and easy to use
+- Upload multiple PDF resumes
+- Paste job description for comparison
+- Compute match scores using SentenceTransformer
+- Highlight overlapping skills between JD and resume
+- *(Optional) Summarize resumes using LLM (Ollama)*
+- Responsive UI via Streamlit + CSS
 
 ---
 ## 🗂️ Project Structure
 ```
 ├── __pyache__/
-├── streamlit_app.py            # Main UI app
-├── model_loader.py             # Load PhoBERT model + tokenizer
-├── classify.py                 # Handle inference and softmax confidence
-├── requirements.txt            # Python dependencies
-└── README.md                   # Project documentation
+├── main_app.py
+├── resume_parser.py
+├── scorer.py
+├── summarizer.py
+├── style.css
+├── requirements-webapp.txt # Python dependences
+└── demo.png 
+└── README.md  # Project documentation
+└── LICENSE
 
 ```
 ---
 
 ## 🧰 Tech Stack
 
-| Feature                | Tool/Library                                       |
-|------------------------|----------------------------------------------------|
-| UI                     | Streamlit                                          |
-| NLP Model              | `wonrax/phobert-base-vietnamese-sentiment`         |
-| Transformer            | Hugging Face Transformers                          |
-| Backend Logic          | PyTorch                                            |
-
+| Feature                | Tool/Library                |
+|------------------------|-----------------------------|
+| File Upload UI         | Streamlit                   |
+| PDF Parsing            | PyMuPDF (`fitz`)            |
+| Text Embedding         | `sentence-transformers`     |
+| Similarity Scoring     | Cosine Similarity (`sklearn`)|
+| LLM Summary (Optional) | Ollama (LLaMA2, Mistral...) |
 
 ---
 
 ## ⚙️ Installation
 
 ```bash
-git clone https://github.com/yourusername/vietnamese-sentiment-classifier.git
-cd vietnamese-sentiment-classifier
-pip install -r requirements.txt
-streamlit run streamlit_app.py
+git clone https://github.com/yourusername/AI-Powered-Resume-Screener.git
+cd AI-Powered-Resume-Screener
+pip install -r requirements-webapp.txt
+streamlit run main_app.py # Usage
 ```
 ---
 ## ✅ Example Output
-- ✍️ Input: "Tôi không thích sản phẩm này"
-- ✅ Output: 😠 Tiêu cực (Độ tin cậy: 98.81%)
+- 📄 John_Doe_CV.pdf — Match Score: 87.6%
+- 📄 Jane_Smith_CV.pdf — Match Score: 65.4%
 
 --- 
-## 🧠 How Confidence is Calculated
-The model returns logits (raw prediction scores). To convert these to human-readable probabilities, we use the Softmax function:
-
-
-```bash
-from torch.nn.functional import softmax
-
-probs = softmax(logits, dim=1)
-confidence = probs[0][predicted_class]
-
-```
-This gives us a value from `0 → 1`, representing the **model’s certainty** for the predicted label.
-We multiply by `100` and round for UI display.
+## 🧭 Future Work
+- Export results to CSV
+- Use named-entity recognition (NER) for skill extraction
+- Add job role suggestions via LLM
+- Multi-language support (English + Vietnamese)
 
 ---
-
 ## 📄 License
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
 
---- 
+
+---
 ## 🤝 Contributing
+I welcome contributions to improve this project!
 Feel free to:
-- Submit PRs with enhancements
-- Report bugs or issues
-- Suggest new features (e.g., more labels, LLM integration)
+- Submit pull requests
+- Report bugs
+- Suggest new features
 
 --- 
+## 🧠 Acknowledgements
 
+### 1. What is Ollama?
+- [Ollama](https://ollama.ai/) is a tool for running lightweight open-source LLMs (like LLaMA 2, Mistral, Phi, etc.) **locally on your machine** with a simple CLI.
+- In this project, Ollama is used to **summarize PDF resumes** into 3–5 bullet points using models like `llama2`.
+
+### 2. Install Ollama (Optional for LLM Summary)
+If you want to enable **AI-powered resume summarization**, install Ollama:
+- Download Ollama: https://ollama.com/download
+- Install a model (example: `llama2`):
+```bash
+ollama run llama2
+```
+- After installation, make sure the `ollama` command is available in your system PATH.
+
+### 3. Troubleshooting Ollama Issues
+If you see this error:
+```bash
+FileNotFoundError: [WinError 2] The system cannot find the file specified
+```
+Make sure that:
+- Ollama is installed correctly
+- The `ollama` CLI is in your system `PATH`
+- You’ve downloaded a model (like `llama2`) with `ollama run llama2`
+
+
+--- 
 ## 📬 Contact
 Contact for work: **Nguyễn Công Phát** – congphatnguyen.work@gmail.com
