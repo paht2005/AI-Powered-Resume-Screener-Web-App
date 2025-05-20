@@ -1,3 +1,5 @@
+# copyright [2025] [Phat Nguyen Cong] (Github: https://github.com/paht2005)
+
 import streamlit as st
 from resume_parser import extract_text_from_pdf
 from scorer import score_resume, highlight_matching_skills

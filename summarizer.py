@@ -1,3 +1,4 @@
+# copyright [2025] [Phat Nguyen Cong] (Github: https://github.com/paht2005)
 import subprocess
 import shutil
 
